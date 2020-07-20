@@ -1,23 +1,35 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
+    for i in range(len(arr) -1):
+        # current index of the array we are looping
         cur_index = i
+        # the smallest value array is whatever the current index is
+        smallest_value = arr[cur_index]
+        # the index of the smallest value is the current index
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
-
-
-        # TO-DO: swap
-        # Your code here
-
+        # on the unsorted side of the array, loop through everything
+        for unsorted_index in range(cur_index, len(arr)):
+            # is the value of an unsorted index less than the current smallest value
+            if arr[unsorted_index] < smallest_value:
+                # set the variable smallest value to the new smallest value
+                smallest_value = arr[unsorted_index]
+                # set the the index smallest value to the new smallest value index
+                smallest_index = unsorted_index
+        # now that you've found a smaller value, you got to swap them
+        # Example: cur_index = 7 smallest_index = 5  (7, 5 = 5, 7)
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
+        # so we looped through all the numbers on this pass in the first for loop and made sure the index[0] is the smallest value, now we will do it again for the index[1] and make sure it is the next smallest value, and so on and so forth.
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    # Loop through your array
+    # while swap = true
+        # Compare each element to its neighbor
+        # If elements in wrong position (relative to each other, swap them)
+    # If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
 
 
     return arr
