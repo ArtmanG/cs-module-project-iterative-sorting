@@ -9,16 +9,18 @@ def linear_search(arr, target):
 ### Binary Search ###
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
-    high = len(arr)
+    high = len(arr) - 1
     low = 0
-    mid = (high + low) // 2
+    
 
-    if arr[mid] == target:
-        return target
-    elif arr[mid] > target:
-        return binary_search(arr, target), mid -1
-    elif arr[mid] < target:
-        return binary_search(arr, target), mid +1
+    while low <= high:
+        mid = (high + low) // 2
 
-    else:
-        return -1  # not found
+        if target == arr[mid]:
+            return mid
+
+        if target < arr[mid]:
+            high = mid - 1
+        if target > arr[mid]:
+            low = mid + 1
+    return -1  # not found
